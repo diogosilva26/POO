@@ -1,92 +1,77 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package atividade5;
 
 import java.time.LocalDate;
-import java.time.Period;
 
-/**
- *
- * @author Aluno
- */
-public abstract class Funcionario implements SalarioFinal{
-    
-    protected String nome;
-    protected LocalDate dataNascimento;
-    protected Genero genero;
-    protected Setor setor;
-    protected double salarioBase;
+public abstract class Funcionario extends Fisica implements SalarioFinal {
 
-    public Funcionario(String nome, LocalDate dataNascimento, Genero genero, Setor setor, double salarioBase) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.genero = genero;
-        this.setor = setor;
-        this.salarioBase = salarioBase;
-    }
-    
-    
-    @Override
-    public abstract double getSalarioFinal();
+	protected String cpf;
+	protected String rg;
+	protected String matricula;
+	protected Setor setor;
+	protected double salario;
 
-    public String getNome() {
-        return nome;
-    }
+	public Funcionario(String nome, String telefone, String email, Endereco endereco, Genero genero,
+			EstadoCivil estadoCivil, LocalDate dataNascimento, String cpf, String rg, String matricula, Setor setor,
+			double salario) {
+		super(nome, telefone, email, endereco, genero, estadoCivil, dataNascimento);
+		this.cpf = cpf;
+		this.rg = rg;
+		this.matricula = matricula;
+		this.setor = setor;
+		this.salario = salario;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
+	public String getRg() {
+		return rg;
+	}
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
 
-    public Genero getGenero() {
-        return genero;
-    }
 
-    public void setGenero(Genero genero) {
-        this.genero = genero;
-    }
+	public String getMatricula() {
+		return matricula;
+	}
 
-    public Setor getSetor() {
-        return setor;
-    }
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
 
-    public void setSetor(Setor setor) {
-        this.setor = setor;
-    }
+	public Setor getSetor() {
+		return setor;
+	}
 
-    public double getSalarioBase() {
-        return salarioBase;
-    }
+	public void setSetor(Setor setor) {
+		this.setor = setor;
+	}
 
-    public void setSalarioBase(double salarioBase) {
-        this.salarioBase = salarioBase;
-    }
-    
-    public int getIdade(){
-        return Period.between(dataNascimento, LocalDate.now()).getYears();
-                
-    }
+	public double getSalario() {
+		return salario;
+	}
 
-    @Override
-    public String toString() {
-        return "\nDados do funcionario: " 
-                + "\nNome: " + nome 
-                + "\nData de nascimento: " + Util.formatarData(dataNascimento)
-                + "\nIdade: " + getIdade()
-                + "\nGênero: " + genero.texto 
-                + "\nSetor: " + setor.nome
-                + "\nSalario base: " + Util.formatarBrl(salarioBase);
-    }
-    
-    
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+
+	@Override
+	public String toString() {
+		return  super.toString()
+				+ "\nCPF: " + cpf 
+				+ "\nRG: " + rg 
+				+ "\nMatricula: " + matricula 
+				+ "\nSetor: " + setor.nome 
+				+ "\nSalario: " + Util.formatarBrl(salario);
+	}
+	
+	
+	
 }

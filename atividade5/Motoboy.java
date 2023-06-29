@@ -1,48 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package atividade5;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author Aluno
- */
 public class Motoboy extends Funcionario{
-    
-    private String carteiraDeHabilitacao;
+	
+	private String carteiraDeHabilitacao;
+	
+	
 
-    public Motoboy(String carteiraDeHabilitacao, String nome, LocalDate dataNascimento, Genero genero, Setor setor, double salarioBase) {
-        super(nome, dataNascimento, genero, setor, salarioBase);
-        this.carteiraDeHabilitacao = carteiraDeHabilitacao;
-    }
+	
+	public Motoboy(String nome, String telefone, String email, Endereco endereco, Genero genero,
+			EstadoCivil estadoCivil, LocalDate dataNascimento, String cpf, String rg, String matricula, Setor setor,
+			double salario, String carteiraDeHabilitacao) {
+		super(nome, telefone, email, endereco, genero, estadoCivil, dataNascimento, cpf, rg, matricula, setor, salario);
+		this.carteiraDeHabilitacao = carteiraDeHabilitacao;
+	}
 
-    public String getCarteiraDeHabilitacao() {
-        return carteiraDeHabilitacao;
-    }
+	public String getCarteiraDeHabilitacao() {
+		return carteiraDeHabilitacao;
+	}
 
-    public void setCarteiraDeHabilitacao(String carteiraDeHabilitacao) {
-        this.carteiraDeHabilitacao = carteiraDeHabilitacao;
-    }
-    
-    @Override
-    public double getSalarioFinal() {
-        return salarioBase;
-    }
+	public void setCarteiraDeHabilitacao(String carteiraDeHabilitacao) {
+		this.carteiraDeHabilitacao = carteiraDeHabilitacao;
+	}
 
-    @Override
-    public String toString() {
-        return super.toString()
-                +"\nCargo:  Motoboy" 
-                +"\nCarteira de habilitacao: " + carteiraDeHabilitacao 
-                +"Salário final: " + getSalarioFinal();
-    }
+	@Override
+	public double getSalarioFinal() {
+		return super.salario;
+	}
 
-    
-    
-    
-    
+	@Override
+	public String toString() {
+		return super.toString()  
+				+ "\nCargo: Motoboy "
+				+ "\nCarteira de habilitação: " + carteiraDeHabilitacao
+				+ "\nSalário final: " + Util.formatarBrl(getSalarioFinal());
+	}
+	
+	
+	
+	
+
 }

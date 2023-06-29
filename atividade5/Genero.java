@@ -1,33 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package atividade5;
 
-/**
- *
- * @author Aluno
- */
 public enum Genero {
-    MASCULINO("Masculino"),
-    FEMININO("Feminino");
-    
-    protected String texto;
+MASCULINO('M',"Masculino"),
+FEMININO('F',"Feminino");
+	
+	protected char caractere;
+	protected String texto;
+	
+	private Genero(char caractere, String texto) {
+		this.caractere = caractere;
+		this.texto = texto;
+	}
 
-    private Genero(String texto) {
-        this.texto = texto;
-    }
+	public char getCaractere() {
+		return caractere;
+	}
 
-    public String getTexto() {
-        return texto;
-    }
-
-    
-
-    
-    
-    
-    
-    
+	public String getTexto() {
+		return texto;
+	}
+	
+	
+	
+	
+	
 }
